@@ -1,4 +1,5 @@
-require 'awesome_print'
+require 'hooksler/newrelic/slack_formatter'
+
 module Hooksler
   module Newrelic
     class BetaInput

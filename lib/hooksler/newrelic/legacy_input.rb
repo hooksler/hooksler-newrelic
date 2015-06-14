@@ -3,7 +3,7 @@ require 'hooksler/newrelic/slack_formatter'
 module Hooksler
   module Newrelic
     class LegacyInput
-      extend Hooksler::Inbound
+      extend Hooksler::Channel::Input
       register :newrelic
 
       def initialize(params)
@@ -22,6 +22,8 @@ module Hooksler
           rescue
           end
         end
+      rescue MultiJson::ParseError
+        nil
       end
 
       private

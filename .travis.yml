@@ -1,3 +1,13 @@
 language: ruby
+cache: bundler
+bundler_args: "--binstubs --without documentation --path ../bundle --retry=3 --jobs=3"
 rvm:
-  - 1.9.3
+- 1.9.3
+- 2.0.0
+- ruby-head
+
+script: bundle exec rspec spec --require spec_helper
+
+addons:
+  code_climate:
+    repo_token: 88a61f69947f4b47be46e41d32ebb9b7c7640a075de26a9405228fd2e78490c8

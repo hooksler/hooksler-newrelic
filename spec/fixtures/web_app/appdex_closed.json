@@ -1,0 +1,11 @@
+{
+    "account_name" : "Account name",
+    "alert_policy_name" : "Default application alert policy",
+    "alert_url" : "http://PATH_TO_NEW_RELIC/accounts/nnn/incidents/496",
+    "application_name" : "RPM Local",
+    "created_at" : "2014-05-01T20:29:56+00:00",
+    "long_description" : "Alert ended for Default application alert policy -- Triggered by: Apdex < 0.85 -- Apps currently involved: RPM Local",
+    "message" : "Apdex < 0.85",
+    "severity" : "downtime",
+    "short_description" : "Ended alert for Default application alert policy: Apdex < 0.85"
+}

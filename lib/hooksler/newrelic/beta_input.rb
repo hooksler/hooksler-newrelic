@@ -1,9 +1,10 @@
 require 'hooksler/newrelic/slack_formatter'
+require 'hooksler'
 
 module Hooksler
   module Newrelic
     class BetaInput
-      extend Hooksler::Inbound
+      extend Hooksler::Channel::Input
       register :newrelic_beta
 
       def initialize(params)
@@ -20,8 +21,19 @@ module Hooksler
           msg.user = payload['condition_name']
           msg.url = payload['incident_url']
           msg.title = payload['policy_name']
-          msg.level = payload['severity'].downcase.to_sym
+
+          case payload['severity']
+            when 'WARN'
+              msg.level = :warning
+            when 'INFO'
+              msg.level = :info
+            when 'CRITICAL'
+              msg.level = :critical
+          end
+
         end
+      rescue MultiJson::ParseError
+        nil
       end
     end
   end

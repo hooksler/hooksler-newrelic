@@ -1,7 +1,7 @@
 module Hooksler
   module Newrelic
     module SlackFormatter
-      def for_newrelic_legacy(message)
+      def for_newrelic(message)
 
         text = message.raw['long_description']
         text = "[#{message.raw['servers'].join(', ')}] #{text}" if message.raw['servers']
